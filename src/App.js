@@ -44,9 +44,10 @@ const completedTask = (id) => {
             return <Task
               taskName={task.taskName}
               id={task.id}
+              completed = {task.completed}
               delete={deleteTask}
               completedTask={completedTask}
-              completed = {task.completed}
+              
             />
           })
         }
