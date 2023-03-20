@@ -42,4 +42,11 @@
   margin: 30px;
 }
 
-
+.Link{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.link a{
+  text-decoration:none ;
+}
