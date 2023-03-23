@@ -1,19 +1,27 @@
 
 import './App.css';
-import Axios from 'axios';
+// import Axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home'
 import {Profile }from './Pages/Profile'
 import Contact from './Pages/Contact'
 import Navbar from './Pages/Navbar'
 import { useState, createContext } from 'react';
-
+import { QueryClient,QueryClientProvider } from 'react-query';
 export const AppContext = createContext();
 
 const App = () => {
- const [userName,setUsername] = useState("shalom")
+  const [userName, setUsername] = useState("shalom")
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      }
+    }
+  });
   return (
     <div className='App'>
+      <QueryClientProvider client={client}>
       <AppContext.Provider value={{userName,setUsername}}> 
       <Router>
         <Navbar/>
@@ -25,6 +33,7 @@ const App = () => {
         </Routes>
       </Router>
       </AppContext.Provider>
+      </QueryClientProvider>
       
     </div>
   );
