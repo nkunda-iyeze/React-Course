@@ -1,15 +1,13 @@
 import { useContext } from "react";
 import { AppContext } from "../App";
-import { useQuery } from "react-query";
-import  Axios  from "axios";
+import { useGetCat } from "../components/useGetCat";
+
 const Home = () => {
-    const {
-        data:catData,
-        isLoading,
+    const { data: catData,
         isError,
-        refetch} = useQuery([""], () => {
-        return Axios.get("https://catfact.ninja/fact").then((result) => result.data);
-    });
+        isLoading,
+        refetchData:refetch
+    } = useGetCat();
     const { userName } = useContext(AppContext);
     if (isError) {
         return (

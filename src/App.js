@@ -7,6 +7,7 @@ import {Profile }from './Pages/Profile'
 import Contact from './Pages/Contact'
 import Navbar from './Pages/Navbar'
 import Form from './Pages/Form';
+import Button from './Pages/Button';
 import { useState, createContext } from 'react';
 import { QueryClient,QueryClientProvider } from 'react-query';
 export const AppContext = createContext();
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/contact" element={<Contact />} />
           <Route path='/form' element={<Form/>} />
+          <Route path='/button' element={<Button/>} />
           <Route path="*" element={<h1> Page not found</h1> } />
         </Routes>
       </Router>
